@@ -1,0 +1,10 @@
+import pandas as pd
+import pandas_datareader as pdr
+import xlrd
+
+file = pd.ExcelFile('Financial_Report.xlsx')
+#print(file.sheet_names)
+df1 = file.parse(1)
+print(df1)
+df2 = file.parse(3)
+print(df2)
