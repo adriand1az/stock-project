@@ -1,0 +1,56 @@
+import pandas as pd
+import numpy as np
+import yfinance as yf
+import datetime as dt
+import pandas_datareader as pdr
+
+yf.pdr_override()
+
+stock = input("Enter a stock ticker symbol: ").upper()
+print(stock)
+
+start_year = 2020
+start_month = 1
+start_day = 1
+
+start = dt.datetime(start_year, start_month, start_day)
+
+now = dt.datetime.now()
+#df = dataframe
+df = pdr.get_data_yahoo(stock, start, now) #getdatayahoo, searches yahoo for whatever was entered in stocks, can be substituted instead of excel sheet
+
+
+#moving average (adjustable)
+ma = 50
+
+sma_string = "sma_".upper() + str(ma)
+df[sma_string] = df.iloc[:, 5].rolling(window=ma).mean()
+
+
+
+df = df.iloc[ma:]
+
+print(df)
+num_h = 0
+num_c = 0
+for i in df.index:
+    if (df["Adj Close"][i]>df[sma_string][i]):
+        #print("The close is higher")
+        num_h += 1
+    else:
+        #print("The close is lower")
+        num_c += 1
+print(stock + " closed higher " + str(num_h) + " times")
+print(stock + " closed lower " + str(num_c) + " times")
+
+#trade if stock meets requirements (1 entry) 1(exit) ave wins and losses and calculate ratio
+#total money = input(what is your starting money)
+#total_money + profit = trading_money or total_money - loss = trading_money
+#profit +=  subtract differnce from entry and exit and add it to entry if a win if a loss subtract it from exit #
+#stock > 1000 only use sufficent funds, limit
+#stock 10% near resistance line
+#stock in an overall trend
+#no earnings
+#mac d indicator above 0
+#volume is higher then weekly average
+#only trade if 10 day ema is  aboove 50 day
