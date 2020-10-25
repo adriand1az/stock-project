@@ -1,12 +1,12 @@
-# stock-project
+## stock-project
 
 version **1.0.0**
 
 (If you dont have a complete understanding of financial investing please read the linked articles)
 
-Gather stock data from yahoo and add ema based on adjusted close. - https://bit.ly/3mmJ31e
-Backtest a particular method of trading stocks to give the user better insight on what works best. - https://www.investopedia.com/terms/b/backtesting.asp
-Scrub through 1,000s of stocks on an excel sheet to find the highest ranking price to sales ratios. - https://www.investopedia.com/terms/p/price-to-salesratio.asp
+Gather stock data from yahoo and add ema based on adjusted close. - https://bit.ly/3mmJ31e <br>
+Backtest a particular method of trading stocks to give the user better insight on what works best. - https://www.investopedia.com/terms/b/backtesting.asp <br>
+Scrub through 1,000s of stocks on an excel sheet to find the highest ranking price to sales ratios. - https://www.investopedia.com/terms/p/price-to-salesratio.asp <br>
 
 The goal of this project was to create a program that autoamated task that investors would have to do manually.
 
